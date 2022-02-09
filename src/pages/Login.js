@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import anillos from '../assets/anillos.png';
+import { useDispatch } from "react-redux";
+import { doLoginThunk } from "../redux/actions";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     
@@ -11,19 +12,18 @@ const Login = () => {
     const [ changeLog, setChangeLog] = useState(false);
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleChangeLogIn = () => setChangeLog(false);
 
     const handleChangeLogUp = () => setChangeLog(true);
 
     const submit = (data) => {
-        axios
-            .post('https://ecommerce-exercise-backend.herokuapp.com/login/', data)
-          .then((res) => {
-                localStorage.setItem('token', res.data.access);
+        dispatch(doLoginThunk(data))
+            .then(res => {
                 navigate('/shop');
             })
-          .catch(() => setLoginError("Credenciales incorrectas"));
+            .catch(() => setLoginError("Creadenciales Incorrectas"));    
       };
 
   return (

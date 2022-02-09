@@ -1,48 +1,14 @@
-import { actions } from "../actions";
+import appReducer from "./appReducer";
+import { combineReducers } from "redux";
+import categoriesReducer from "./categoriesReducer";
+import cartsReducer from "./cartsReducer";
+import shopReducer from "./shopReducer";
 
-const INITIAL_STATE = {
-    shopList: [],
-    shopDetail: {},
-    isLoading: false,
-    categories: [],
-    carts: []
-}
+const rootReducer = combineReducers({
+    app: appReducer,
+    categories: categoriesReducer,
+    carts: cartsReducer,
+    shop: shopReducer
+});
 
-const reducer = (state = INITIAL_STATE, action) => {
-    switch (action.type) {
-        case actions.setProducts:
-            return{
-                ...state,
-                shopList: action.payload
-            }
-        
-        case actions.setIsLoading:
-            return{
-                ...state,
-                isLoading: action.payload
-            }
-        
-        case actions.setProductDetail:
-            return{
-                ...state,
-                shopDetail: action.payload
-            }
-
-        case actions.setCategories:
-            return{
-                ...state,
-                categories: action.payload
-            }
-
-        case actions.setCarts:
-            return{
-                ...state,
-                carts: action.payload
-            }
-    
-        default:
-            return state;
-    }
-}
-
-export default reducer;
+export default rootReducer;

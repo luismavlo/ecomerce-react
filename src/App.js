@@ -1,18 +1,19 @@
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Cart, Login, Shop, ShopDetail, Home } from './pages'
-import { ProtectedRoutes } from "./components";
+import { ProtectedRoutes, CustomRouter } from "./components";
 import { useSelector } from 'react-redux';
 import { MainLayout } from './layout';
 import LoadingScreen from './components/LoadingScreen';
+import { history } from './helpers';
 
 
 function App() {
 
-  const isLoading = useSelector(state => state.isLoading)
+  const isLoading = useSelector(state => state.app.isLoading)
 
   return (
     <div className='app'>
-        <HashRouter>
+        <CustomRouter history={history}>
 
           { isLoading && <LoadingScreen />}
 
@@ -27,7 +28,7 @@ function App() {
               </Route>
             </Route>
           </Routes>
-        </HashRouter>
+        </CustomRouter>
     </div>
   );
 }

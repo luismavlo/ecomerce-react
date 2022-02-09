@@ -10,8 +10,8 @@ const ShopDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  const product = useSelector(state => state.shopDetail);
-  const shopList = useSelector(state => state.shopList);
+  const product = useSelector(state => state.shop.shopDetail);
+  const shopList = useSelector(state => state.shop.shopList);
   const { counter, increment, decrement } = useCounter(1);
 
   useEffect(() => {
