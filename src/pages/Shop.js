@@ -7,6 +7,7 @@ import { getCategoriesThunk, getProductsListThunk } from '../redux/actions';
 const Shop = () => {
     const dispatch = useDispatch();
     const shopList = useSelector(state => state.shop.shopList);
+
     
 
     useEffect(() => {

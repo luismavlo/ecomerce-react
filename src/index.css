@@ -33,10 +33,10 @@ body{
   box-shadow: 0px 0px 40px grey;
   display: flex;
   font-family: 'Rubik', sans-serif;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 100%;
   min-height: 80vh;
 }
 
@@ -47,7 +47,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
+  width: 80%;
   min-height: 80vh;
 }
 
@@ -62,17 +62,19 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
+  width: 80%;
   min-height: 80vh;
+  position: relative;
 }
 
 .form-login{
+  margin-top: 50px;
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   width: 100%;
-  height: 300px;
+  height: 410px;
 }
 
 .input-container{
@@ -114,8 +116,8 @@ body{
 
 .option-log{
   position: absolute;
-  top: 100px;
-  right: 23%;
+  top: 40px;
+  right: 15%;
 }
 
 .option-log > input[type='button']{
@@ -1045,6 +1047,21 @@ input#hamburger-icon:checked ~ header>div>nav>ul{
     transition: all 300ms;
     position: static;
     transition: all 3s linear;
+  }
+}
+
+@media only screen and (min-width: 900px){
+  .content-login{
+    flex-direction: row;
+    width: 60%;
+  }
+
+  .content-form-login{
+    width: 50%;
+  }
+
+  .content-motto{
+    width: 50%;
   }
 }
 

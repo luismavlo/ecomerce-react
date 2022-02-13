@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { Cart, Login, Shop, ShopDetail, Home } from './pages'
+import { Cart, Login, Shop, ShopDetail, Home, Orders } from './pages'
 import { ProtectedRoutes, CustomRouter } from "./components";
 import { useSelector } from 'react-redux';
 import { MainLayout } from './layout';
@@ -25,6 +25,7 @@ function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/shop/:id" element={<ShopDetail />} />
                 <Route path="/shop" element={<Shop />} />
+                <Route path='/orders' element={<Orders />}/>
               </Route>
             </Route>
           </Routes>

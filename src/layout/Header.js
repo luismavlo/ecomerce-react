@@ -39,7 +39,7 @@ const Header = () => {
               <li><Link to='/' className='link'>Contact</Link></li>
               {
                 getConfig().headers.Authorization !== 'Bearer ' ? (
-                  <li><Link to='/' className='link'>My Orders</Link></li>
+                  <li><Link to='/orders' className='link'>My Orders</Link></li>
                 ) : (
                   <li><Link to='/' className='link'>Journal</Link></li>
                 )

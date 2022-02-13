@@ -6,7 +6,7 @@ const Cart = () => {
 
   const dispatch = useDispatch();
   const carts = useSelector(state => state.carts);
- 
+  
 
   useEffect(() => {
     dispatch(getCartsThunk())
